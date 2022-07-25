@@ -1,0 +1,19 @@
+.content {
+    grid-area: c;
+  
+    background-color: rgb(82, 82, 82);
+  
+  }
+
+.banner {
+  width: 100%;
+  height: 150px;
+
+  object-fit: cover;
+}
+
+.ava {
+  width: 160px;
+
+  object-fit: cover;
+}

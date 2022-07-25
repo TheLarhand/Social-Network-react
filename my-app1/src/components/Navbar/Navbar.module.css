@@ -1,0 +1,21 @@
+.nav {
+    grid-area: n;
+  
+    background-color: rgb(134, 96, 179);
+  
+  }
+
+  .wrapper {
+    margin: 10px;
+  }
+
+  /* .item {} */
+
+  .item a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .settings {
+    margin-top: 20px;
+  }
