@@ -1,13 +1,13 @@
 import s from './Profile.module.css';
 import Profile__info from './Profile__info';
-import Profile__posts from './Profile__posts';
+import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
   return (
-    <div className={s.content}>
+    <div>
 
       <Profile__info/>
-      <Profile__posts/>
+      <MyPosts/>
 
     </div>
   )

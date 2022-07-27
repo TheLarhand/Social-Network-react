@@ -16,6 +16,10 @@
     text-decoration: none;
   }
 
+.active {
+    font-weight: bold;
+  }
+
   .settings {
     margin-top: 20px;
   }
