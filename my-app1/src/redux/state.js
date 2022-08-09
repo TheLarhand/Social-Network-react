@@ -22,7 +22,8 @@ let state = {
             { id: 1, message: 'Hi fag' },
             { id: 2, message: 'No u faggot' },
             { id: 3, message: 'Yeaaaaaaaah)' }
-        ]
+        ],
+        newMessageText: ''
     }
 }
 
@@ -41,5 +42,21 @@ export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 }
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 4,
+        message: state.messagesPage.newMessageText
+    }
+    state.messagesPage.messages.push(newMessage)
+    state.messagesPage.newMessageText = ''
+    rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newMessage) => {
+    state.messagesPage.newMessageText = newMessage
+    rerenderEntireTree(state)
+}
+
 
 export default state;
