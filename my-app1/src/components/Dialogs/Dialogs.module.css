@@ -21,8 +21,9 @@
 }
 
 .messages .message {
-    width: 100px;
-    max-width: 100%;
-    min-height: 30px;
-    background-color: rgb(253, 253, 253);
+
+    background-color: white;
+    height: 25px;
+    border: solid 3px rgb(134, 96, 179);
+
 }
