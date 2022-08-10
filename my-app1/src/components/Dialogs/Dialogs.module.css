@@ -21,5 +21,7 @@
 }
 
 .messages .message {
-
+    background-color: white;
+    height: 25px;
+    border: solid 3px rgb(134, 96, 179);
 }
