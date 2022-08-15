@@ -48,7 +48,7 @@ let store = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._callSubscriber(this._state)
-        } 
+        }
         else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
@@ -67,6 +67,32 @@ let store = {
             this._callSubscriber(this._state)
         }
     }
+}
+
+export const addPostActionCreator = () => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+
+export const onPostChangeActionCreator = (text) => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newText: text
+    }
+}
+
+export const addMessageActionCreator = () => {
+    return {
+        type: 'ADD-MESSAGE'
+    }
+}
+
+export const onMessageChangeActionCreator = (text) => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: text
+    }
+
 }
 
 export default store
