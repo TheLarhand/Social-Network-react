@@ -10,6 +10,7 @@ import Settings from './components/Settings/Settings';
 
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
@@ -24,13 +25,12 @@ const App = (props) => {
         <div className='app-wrapper-content'>
 
           <Routes>
-            <Route path='/dialogs/*' element ={<Dialogs 
-            state={props.state.messagesPage} 
-            dispatch={props.store.dispatch.bind(props.store)}
+            <Route path='/' element ={<div/>} />
+            <Route path='/dialogs/*' element ={<DialogsContainer 
+            store={props.store}
             />} />
             <Route path='/profile/*' element ={<Profile 
-            state={props.state.profilePage} 
-            dispatch={props.store.dispatch.bind(props.store)}
+            store={props.store}
             />} />
             <Route path='/news/*' element ={<News />} />
             <Route path='/music/*' element ={<Music />} />
