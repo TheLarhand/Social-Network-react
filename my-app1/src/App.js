@@ -11,14 +11,14 @@ import Settings from './components/Settings/Settings';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import StoreContext from './StoreContext';
 
 
 
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
-
       <div className='app-wrapper'>
         <Header />
         <Navbar />
@@ -26,12 +26,8 @@ const App = (props) => {
 
           <Routes>
             <Route path='/' element ={<div/>} />
-            <Route path='/dialogs/*' element ={<DialogsContainer 
-            store={props.store}
-            />} />
-            <Route path='/profile/*' element ={<Profile 
-            store={props.store}
-            />} />
+            <Route path='/dialogs/*' element ={<DialogsContainer />} />
+            <Route path='/profile/*' element ={<Profile />} />
             <Route path='/news/*' element ={<News />} />
             <Route path='/music/*' element ={<Music />} />
             <Route path='/settings/*' element ={<Settings />} />
@@ -40,7 +36,6 @@ const App = (props) => {
 
         </div>
       </div>
-
     </BrowserRouter>
 
   );
