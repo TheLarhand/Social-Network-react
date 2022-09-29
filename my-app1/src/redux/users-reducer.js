@@ -4,10 +4,13 @@ const SET_USERS = 'SET_USERS'
 
 let initialState = {
     users: [
-    //     { id: 1, followed: false , fullName: 'Igor S.', status: 'i am gay', location:[{city: 'Prishahtinsk', country: 'Kazakhstan'}] },
-    //     { id: 2, followed: false , fullName: 'Dasha Z.', status: 'cutest ded', location:[{city: 'Temirtay', country: 'Kazakhstan'}] },
-    //     { id: 3, followed: true , fullName: 'John S.', status: '...', location:[{city: 'Bavaria', country: 'Germany'}] }
-    // 
+        { id: 1,photoUrl: 'https://klike.net/uploads/posts/2019-03/1551511801_1.jpg' ,
+        followed: false , fullName: 'Igor S.', status: 'i am gay', location:[{city: 'Prishahtinsk', country: 'Kazakhstan'}] },
+        { id: 2,photoUrl: 'https://sun9-1.userapi.com/impg/C5Jj2Zqu-xzOmhvbc_-rVZqQGQMpqNsWbt3apg/ADWwTJxfpyQ.jpg?size=564x550&quality=96&sign=361ed471335b8509654658509df29c0d&type=album' ,
+        followed: false , fullName: 'Dasha Z.', status: 'cutest ded', location:[{city: 'Temirtay', country: 'Kazakhstan'}] },
+        { id: 3,photoUrl: 'https://rus-pic.ru/wp-content/uploads/2021/12/avatarki-dlja-malchikov-41-foto-e7202eb.jpg' , 
+        followed: true , fullName: 'John S.', status: '...', location:[{city: 'Bavaria', country: 'Germany'}] }
+    
 ],
 }
 
