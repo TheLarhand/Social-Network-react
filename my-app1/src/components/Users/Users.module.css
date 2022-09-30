@@ -1,0 +1,43 @@
+.user {
+    display: flex;
+    gap: 20px;
+    margin: 10px;
+    border-bottom: 3px solid rgb(134, 96, 179);
+    color: white;
+}
+
+.ava_btn {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.btn {
+    width: auto;
+    display: block;
+    background-color: rgb(174, 127, 231);
+}
+
+.info {
+    padding: 10px;
+
+}
+.fullName {
+    color: rgb(174, 127, 231);
+    font-weight: bold;
+    padding: 1px;
+}
+
+.location {
+    padding: 10px;
+    text-align: end;
+    margin-left: auto;
+}

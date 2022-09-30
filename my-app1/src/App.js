@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import News from './components/News/News';
+import NewsContainer from './components/News/NewsContainer';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
@@ -23,7 +23,7 @@ const App = () => {
             <Route path='/' element ={<div/>} />
             <Route path='/dialogs/*' element ={<DialogsContainer />} />
             <Route path='/profile/*' element ={<Profile />} />
-            <Route path='/news/*' element ={<News />} />
+            <Route path='/news/*' element ={<NewsContainer />} />
             <Route path='/music/*' element ={<Music />} />
             <Route path='/settings/*' element ={<Settings />} />
 
