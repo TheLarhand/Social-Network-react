@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import profileReducer from './profile-reducer'
 import dialogsReducer from './dialogs-reducer'
-import usersReducer from './users-reducer';
+import usersReducer from './users-reducer'
+import newsReducer from './news-reducer'
 
 let store = configureStore({
     reducer: {
         profilePage: profileReducer,
         messagesPage: dialogsReducer,
         usersPage: usersReducer,
+        newsPage: newsReducer,
     }
 });
 export default store;

@@ -15,6 +15,7 @@ let initialState = {
             }],
             date: '30.09.2022',
             newsPhotoUrl: '',
+            newsText: 'Резунок',
             likeCounter: 21,
             liked: false,
             newCommentText: '',
@@ -24,7 +25,7 @@ let initialState = {
                     fullName: 'Dasha Z.',
                     photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
                     comment: 'Отличный рисунок!!!',
-                    date: ''
+                    date: '30.09.2022'
                 },
 
                 {
@@ -32,15 +33,15 @@ let initialState = {
                     fullName: 'John S.',
                     photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
                     comment: 'я бы лучше сделал.',
-                    date: ''
+                    date: '30.09.2022'
                 },
 
                 {
                     id: 3,
                     fullName: 'Dasha Z.',
                     photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
-                    comment: '',
-                    date: ''
+                    comment: 'dfgdfgdfg',
+                    date: '30.09.2022'
                 }
             ]
 
@@ -54,6 +55,7 @@ let initialState = {
             }],
             date: '30.09.2022',
             newsPhotoUrl: '',
+            newsText: 'Резунок',
             likeCounter: 21,
             liked: true,
             newCommentText: '',
@@ -79,10 +81,10 @@ const newsReducer = (state = initialState, action) => {
             return {
                 ...state, news: state.news.map(n => {
                     if (n.id === action.newsId) {
-                        if (n.liked == true) {
-                            return { ...n, liked: false, likeCounter: likeCounter-- }
+                        if (n.liked === true) {
+                            return { ...n, liked: false, likeCounter: n.likeCounter--}
                         } else {
-                            return { ...n, liked: true, likeCounter: likeCounter++ }
+                            return { ...n, liked: true, likeCounter: n.likeCounter++}
                         }
                     }
                 })

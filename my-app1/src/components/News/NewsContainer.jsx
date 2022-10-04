@@ -1,10 +1,28 @@
+import { connect } from "react-redux"
+import { addCommentAC, likeAC, onCommentChangeAC, setNewsAC } from "../../redux/news-reducer"
+import News from "./News"
 
-const NewsContainer = (props) => {
-    return (
-        <div>
-            News
-        </div>
-    )
+let mapStateToProps = (state) => {
+    return {
+        news: state.newsPage.news
+    }
 }
 
-export default NewsContainer;
+let mapDispatchToProps = (dispatch) => {
+    return {
+        like: (newsId) => {
+            dispatch(likeAC(newsId))
+        },
+        addComment: (newsId) => {
+            dispatch(addCommentAC(newsId))
+        },
+        updateNewComment: (newsId, text) => {
+            dispatch(onCommentChangeAC(newsId, text))
+        },
+        setNews: (news) => {
+            dispatch(setNewsAC(news))
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(News)
