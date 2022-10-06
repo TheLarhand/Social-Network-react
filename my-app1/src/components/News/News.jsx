@@ -12,8 +12,10 @@ const News = (props) => {
     }
     return (
         <div>
+            {console.log(props.news)}
             {
                 props.news.map(n => <div>
+                                {console.log(n)}
                     <div>
                         <img src={n.author[0].photoUrl} alt="avatar" />
                     </div>

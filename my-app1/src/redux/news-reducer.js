@@ -76,34 +76,46 @@ let initialState = {
 }
 
 const newsReducer = (state = initialState, action) => {
+    let stateCopy = { 
+        ...state,
+        news: [...state.news]
+    }
+    // stateCopy.news[0].comments = { ...state.news[0].comments }
+
     switch (action.type) {
         case LIKE:
             return {
                 ...state, news: state.news.map(n => {
                     if (n.id === action.newsId) {
                         if (n.liked === true) {
-                            return { ...n, liked: false, likeCounter: n.likeCounter--}
+                            return { ...n, liked: false, likeCounter: n.likeCounter-- }
+                            // return { ...n, liked: false}
                         } else {
-                            return { ...n, liked: true, likeCounter: n.likeCounter++}
+                            return { ...n, liked: true, likeCounter: n.likeCounter++ }
+                            // return { ...n, liked: true}
                         }
                     }
                 })
             }
         case ADD_COMMENT:
             {
-                let newComment = {
+                debugger
+                const newComment = {
                     id: 4,
                     fullName: 'UserName',
                     photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
                     comment: action.newText,
                     date: '12.12.2022'
                 }
-                let stateCopy = { ...state }
-                stateCopy.news = { ...state.news }
-                stateCopy.news.comments = { ...state.news.comments }
-                stateCopy.news.comments.push(newComment)
+
+                stateCopy.news[0].comments.push(newComment)
                 stateCopy.news.newCommentText = ''
+                console.log(stateCopy.news[0].comments);
                 return stateCopy
+                // let arr1 = [{}]
+                // let arr2 = [{}]
+                // let arr3 = arr1.concat(arr2)
+                // console.log(arr3);
             }
         case UPDATE_NEW_COMMENT_TEXT:
             {
@@ -112,8 +124,8 @@ const newsReducer = (state = initialState, action) => {
                 stateCopy.news.newCommentText = action.newText
                 return stateCopy
             }
-        case SET_NEWS: 
-            return {...state, news: [...state.news , ...action.news]}
+        case SET_NEWS:
+            return { ...state, news: [...state.news, ...action.news] }
 
         default:
             return state
