@@ -80,6 +80,8 @@ const newsReducer = (state = initialState, action) => {
         ...state,
         news: [...state.news]
     }
+    // let stateCopy = {...state}
+    // stateCopy.news = [{...stateCopy.news}]
     // stateCopy.news[0].comments = { ...state.news[0].comments }
 
     switch (action.type) {
@@ -99,7 +101,6 @@ const newsReducer = (state = initialState, action) => {
             }
         case ADD_COMMENT:
             {
-                debugger
                 const newComment = {
                     id: 4,
                     fullName: 'UserName',
@@ -108,19 +109,19 @@ const newsReducer = (state = initialState, action) => {
                     date: '12.12.2022'
                 }
 
-                stateCopy.news[0].comments.push(newComment)
-                stateCopy.news.newCommentText = ''
-                console.log(stateCopy.news[0].comments);
+                for (const e of stateCopy.news) {
+                    console.log(action);
+                    if (e.id == action.newsId){
+                        e.comments.push(newComment)
+                        e.newCommentText = ''
+                    }
+                }
                 return stateCopy
-                // let arr1 = [{}]
-                // let arr2 = [{}]
-                // let arr3 = arr1.concat(arr2)
-                // console.log(arr3);
             }
         case UPDATE_NEW_COMMENT_TEXT:
             {
-                let stateCopy = { ...state }
-                stateCopy.news = { ...state.news }
+                // let stateCopy = { ...state }
+                // stateCopy.news = { ...state.news }
                 stateCopy.news.newCommentText = action.newText
                 return stateCopy
             }

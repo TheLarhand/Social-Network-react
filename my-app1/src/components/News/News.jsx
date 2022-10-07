@@ -1,8 +1,8 @@
 import s from './News.module.css'
 
 const News = (props) => {
-    let onSendCommentClick = () => {
-        props.addComment()
+    let onSendCommentClick = (newsId) => {
+        props.addComment(newsId)
     }
 
     let onNewCommentChange = (e) => {
@@ -15,7 +15,6 @@ const News = (props) => {
             {console.log(props.news)}
             {
                 props.news.map(n => <div>
-                                {console.log(n)}
                     <div>
                         <img src={n.author[0].photoUrl} alt="avatar" />
                     </div>
@@ -57,7 +56,7 @@ const News = (props) => {
                              onChange={onNewCommentChange} 
                              value={n.newCommentText}
                              />
-                            <button onClick={onSendCommentClick}>отправить</button>
+                            <button onClick={() => {onSendCommentClick(n.id)}}>отправить</button>
                         </div>
                 </div>)
             }
