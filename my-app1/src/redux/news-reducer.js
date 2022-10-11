@@ -14,7 +14,7 @@ let initialState = {
                 photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
             }],
             date: '30.09.2022',
-            newsPhotoUrl: '',
+            newsPhotoUrl: 'https://memepedia.ru/wp-content/uploads/2022/10/mudroe-tainstvennoe-derevo-mem-9.jpg',
             newsText: 'Резунок',
             likeCounter: 21,
             liked: false,
@@ -76,42 +76,41 @@ let initialState = {
 }
 
 const newsReducer = (state = initialState, action) => {
-    let stateCopy = { 
+    let stateCopy = {
         ...state,
         news: [...state.news]
     }
-    // let stateCopy = {...state}
-    // stateCopy.news = [{...stateCopy.news}]
-    // stateCopy.news[0].comments = { ...state.news[0].comments }
 
     switch (action.type) {
         case LIKE:
-            return {
-                ...state, news: state.news.map(n => {
-                    if (n.id === action.newsId) {
-                        if (n.liked === true) {
-                            return { ...n, liked: false, likeCounter: n.likeCounter-- }
-                            // return { ...n, liked: false}
-                        } else {
-                            return { ...n, liked: true, likeCounter: n.likeCounter++ }
-                            // return { ...n, liked: true}
-                        }
+            {
+            for (const e of stateCopy.news) {
+                if (e.id === action.newsId) {
+                    if (e.liked === true) {
+                        e.liked = false
+                        e.likeCounter = e.likeCounter - 1
+                    } else {
+                        e.liked = true
+                        e.likeCounter = e.likeCounter + 1
                     }
-                })
+                    console.log(e.likeCounter);
+                }
             }
+            return stateCopy
+        }
+        
         case ADD_COMMENT:
             {
-                const newComment = {
-                    id: 4,
-                    fullName: 'UserName',
-                    photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
-                    comment: action.newText,
-                    date: '12.12.2022'
-                }
-
                 for (const e of stateCopy.news) {
-                    console.log(action);
-                    if (e.id == action.newsId){
+                    if (e.id == action.newsId) {
+                        const newComment = {
+                            id: 4,
+                            fullName: 'UserName',
+                            photoUrl: 'https://i.pinimg.com/564x/c3/dd/7e/c3dd7e75aecbcce93f9ba9da4ece817f.jpg',
+                            comment: e.newCommentText,
+                            date: '12.12.2022'
+                        }
+                        console.log(newComment);
                         e.comments.push(newComment)
                         e.newCommentText = ''
                     }
@@ -120,10 +119,14 @@ const newsReducer = (state = initialState, action) => {
             }
         case UPDATE_NEW_COMMENT_TEXT:
             {
+                for (const e of stateCopy.news) {
+                    if (e.id == action.newsId) {
+                        e.newCommentText = action.newText
+                    }
+                }
+                return stateCopy
                 // let stateCopy = { ...state }
                 // stateCopy.news = { ...state.news }
-                stateCopy.news.newCommentText = action.newText
-                return stateCopy
             }
         case SET_NEWS:
             return { ...state, news: [...state.news, ...action.news] }
